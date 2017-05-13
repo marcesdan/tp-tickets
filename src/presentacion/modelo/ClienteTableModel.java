@@ -35,15 +35,14 @@ public class ClienteTableModel extends ATableModel{
     public Object getValueAt(int rowIndex, int columnIndex) {
         Cliente s = (Cliente) getData().get(rowIndex);
         switch(columnIndex){
-                    case 0:return s.getId();
-                    case 1:return s.getApellido();
-                    case 2:return s.getNombre();
-                    case 3:return s.getDni();
-                    case 4:return s.getTelefono();
-                    case 5:return s.getDireccion().getCalle();
-                    case 6:return s.getDireccion().getNumero();
-                    case 7:return s.getDireccion().getBarrio();
-                    case 8:return s.getDireccion().getCodigoPostal();
+                    case 0:return s.getApellido();
+                    case 1:return s.getNombre();
+                    case 2:return s.getDni();
+                    case 3:return s.getTelefono();
+                    case 4:return s.getDireccion().getCalle();
+                    case 5:return s.getDireccion().getNumero();
+                    case 6:return s.getDireccion().getBarrio();
+                    case 7:return s.getDireccion().getCodigoPostal();
                 }
         
         return null;
