@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="TpTicketsPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>entidades.Cliente</class>
+    <class>entidades.Direccion</class>
+    <class>entidades.Funcion</class>
+    <class>entidades.Teatro</class>
+    <class>entidades.Ticket</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:derby:BDTickets;create=true;"/>
+      <property name="javax.persistence.jdbc.user" value=""/>
+      <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver"/>
+      <property name="javax.persistence.jdbc.password" value=""/>
+    </properties>
+  </persistence-unit>
+</persistence>

@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Fri May 12 19:31:22 ART 2017:
+ Iniciando instancia a816c00e-015b-fec9-adf4-0000029305c0 de Derby, versión The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): 
+en el directorio de base de datos /home/marces/Dropbox/Facultad/3ro/Laboratorio de Programacion y Lenguajes/Examen/TpTickets/BDTickets con el cargador de clases sun.misc.Launcher$AppClassLoader@194fa3e
+Cargado desde file:/usr/local/jdk1.8.0_121/db/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_121-b13
+user.dir=/home/marces/Dropbox/Facultad/3ro/Laboratorio de Programacion y Lenguajes/Examen/TpTickets
+os.name=Linux
+os.arch=i386
+os.version=4.4.0-53-generic
+derby.system.home=null
+Cargador de clases de base de datos iniciado - derby.database.classpath=''
