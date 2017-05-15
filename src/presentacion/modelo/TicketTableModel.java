@@ -11,7 +11,7 @@ import java.time.format.DateTimeFormatter;
 
 /**
  *
- * @author Matias
+ * @author marces
  */
 public class TicketTableModel extends ATableModel{
     

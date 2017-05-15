@@ -13,7 +13,7 @@ import java.time.format.DateTimeFormatter;
 
 /**
  *
- * @author Matias
+ * @author marces
  */
 public class FuncionTableModel extends ATableModel{
     

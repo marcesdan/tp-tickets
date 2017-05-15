@@ -10,7 +10,7 @@ import dao.DaoFactory;
 
 /**
  *
- * @author Matias
+ * @author marces
  */
 public class TeatroTableModel extends ATableModel{
     
