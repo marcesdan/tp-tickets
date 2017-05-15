@@ -12,7 +12,6 @@ import presentacion.vista.Main;
 import presentacion.vista.Vista;
 import presentacion.vista.VistaHija;
 import presentacion.vista.VistaPadre;
-import javax.swing.table.AbstractTableModel;
 import presentacion.factory.AbstractFactoryCompleta;
 import presentacion.modelo.ATableModel;
 
