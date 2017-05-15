@@ -19,16 +19,12 @@ public class TeatroTableModel extends ATableModel{
         super(new DaoFactory().crearTeatroDao(),
                 
                 new String[]{
-                    "nombre","capacidad",
-                    "calle","numero","barrio","codigo"},
+                    "Nombre","Capacidad",
+                    "Calle","Número","Barrio","Código"},
                 
                 new Class[]{
                     String.class, Integer.class,
                     String.class, String.class, String.class, Integer.class});
-        
-        // llenamos un array de IDs. No los queremos mostrar en la tabla.
-        for (int i = 0; i < data.size(); i++) 
-           id.add( ((Teatro) data.get(i)).getId() );
     }
 
     @Override
@@ -45,5 +41,10 @@ public class TeatroTableModel extends ATableModel{
         
         return null;
     }
- 
+    
+    @Override
+    protected void updateId() {
+        for (int i = 0; i < data.size(); i++) 
+           id.add( ((Teatro) data.get(i)).getId() );
+    }
 }

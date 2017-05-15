@@ -5,11 +5,13 @@ package entidades;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+
 
 /**
  *
@@ -29,9 +31,11 @@ public class Ticket implements Serializable {
     @ManyToOne
     private Cliente cliente;
     
+    @Column(nullable = false)
     private LocalDateTime fechaVenta;
 
     public Ticket() {
+        fechaVenta = LocalDateTime.now();
     }
 
     //<editor-fold defaultstate="collapsed" desc="Getters y Setters">

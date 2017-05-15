@@ -11,7 +11,7 @@ import entidades.EntityFactory;
 import dao.DaoFactory;
 import dao.TeatroDao;
 import entidades.Teatro;
-import presentacion.vista.InfoTeatro;
+import presentacion.vista.info.InfoTeatro;
 import presentacion.vista.Main;
 import presentacion.vista.Vista;
 import presentacion.vista.VistaHija;

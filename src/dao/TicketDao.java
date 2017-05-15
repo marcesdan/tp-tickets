@@ -3,17 +3,18 @@
  */
 package dao;
 
-import entidades.Funcion;
 import entidades.Ticket;
-import java.util.List;
 
 /**
  *
  * @author marces
  */
 public interface TicketDao extends GenericDao<Long, Ticket> {
-
-    public List<Ticket> buscarTodos();
     
-    public Long buscarTicketsFuncion(Long idFuncion);
+    /**
+     * Nos da la cantidad de tickets vendidos de la funcion bajo "idFuncion".
+     * @param idFuncion el id de la funcion a evaluar
+     * @return numero con la cantidad de tickets vendidos de la funcion
+     */
+    public Integer buscarTicketsFuncion(Long idFuncion);
 }

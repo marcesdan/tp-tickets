@@ -12,20 +12,23 @@ import presentacion.controlador.Controlador;
 import presentacion.controlador.ControladorFuncion;
 import presentacion.controlador.ControladorHijo;
 import presentacion.controlador.ControladorFuncionNuevo;
-import presentacion.vista.PanelFuncion;
-import presentacion.vista.PanelFuncionNueva;
+import presentacion.vista.panel.PanelFuncion;
+import presentacion.vista.panel.PanelFuncionNueva;
 import presentacion.vista.VistaHija;
 import presentacion.vista.VistaPadre;
+import presentacion.vista.panel.PanelFactory;
 
 /**
  *
  * @author marces
  */
 public class FuncionesFactory implements AbstractFactoryCompleta{
-
+    
+    PanelFactory factory = new PanelFactory();
+    
     @Override
     public VistaPadre crearVista() {
-        return new PanelFuncion();
+        return factory.crearPanelFuncion();
     }
 
     @Override
@@ -36,7 +39,7 @@ public class FuncionesFactory implements AbstractFactoryCompleta{
 
     @Override
     public VistaHija crearVistaHija() {
-        return new PanelFuncionNueva();
+        return factory.crearPanelFuncionNueva();
     }
 
     @Override

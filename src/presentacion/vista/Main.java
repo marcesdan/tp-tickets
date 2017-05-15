@@ -44,7 +44,6 @@ public class Main implements Runnable{
         frame.pack();
     }
     
-    
     /**
      * Llamado por los controladores para un unico ingreso de teclado
      * por parte del usuario. Por ej: un DNI.

@@ -6,7 +6,6 @@
 package presentacion.modelo;
 
 import dao.DaoFactory;
-import entidades.Funcion;
 import entidades.Ticket;
 import java.time.format.DateTimeFormatter;
 
@@ -21,18 +20,12 @@ public class TicketTableModel extends ATableModel{
         super(new DaoFactory().crearTicketDao(),
                 
                 new String[]{
-                    "Documento","Función","Fecha y hora","Teatro"},
+                    "Cliente","Función","Fecha y hora","Teatro"},
                 
                 new Class[]{
-                    Integer.class, Funcion.class, String.class, String.class});
-        
-        // llenamos un array de IDs. No los queremos mostrar en la tabla.
-        for (int i = 0; i < data.size(); i++) 
-           id.add( ((Ticket) data.get(i)).getId() );
+                    Integer.class, String.class, String.class, String.class});
     }
     
-    
-
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         
@@ -54,5 +47,10 @@ public class TicketTableModel extends ATableModel{
         
         return null;
     }
- 
+    
+    @Override
+    protected void updateId() {
+        for (int i = 0; i < data.size(); i++) 
+           id.add( ((Ticket) data.get(i)).getId() );
+    }
 }

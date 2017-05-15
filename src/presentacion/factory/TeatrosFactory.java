@@ -7,16 +7,19 @@ import presentacion.controlador.Controlador;
 import presentacion.controlador.ControladorHijo;
 import presentacion.controlador.ControladorTeatroNuevo;
 import presentacion.controlador.ControladorTeatro;
-import presentacion.vista.PanelTeatro;
-import presentacion.vista.PanelTeatroNuevo;
+import presentacion.vista.panel.PanelTeatro;
+import presentacion.vista.panel.PanelTeatroNuevo;
 import presentacion.vista.VistaHija;
 import presentacion.vista.VistaPadre;
+import presentacion.vista.panel.PanelFactory;
 
 /**
  *
  * @author marces
  */
 public class TeatrosFactory implements AbstractFactoryCompleta{
+    
+    PanelFactory factory = new PanelFactory();
     
     @Override
     public VistaPadre crearVista() {

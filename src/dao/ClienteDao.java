@@ -5,15 +5,15 @@
 package dao;
 
 import entidades.Cliente;
-import java.util.List;
-
 /**
  *
  * @author marces
  */
 public interface ClienteDao extends GenericDao<Long, Cliente> {
-
-    public List<Cliente> buscarTodos();
     
+    /** Consulta sql que nos devuelve el cliente bajo un DNI
+     * @param dni documento del cliente. Es clave candidata (Unique)
+     * @return instancia del cliente bajo ese DNI
+     */
     public Cliente buscarPorDni(int dni);
 }

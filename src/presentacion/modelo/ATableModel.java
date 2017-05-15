@@ -16,7 +16,7 @@ import javax.swing.table.AbstractTableModel;
 public abstract class ATableModel extends AbstractTableModel {
 
     protected ArrayList data;
-    protected ArrayList<Long> id = new ArrayList<>();
+    protected ArrayList<Long> id;
     private GenericDao dao;
     private String[] columns;
     private Class[] tipos;
@@ -49,7 +49,9 @@ public abstract class ATableModel extends AbstractTableModel {
     }
 
     public void update() {
-        data = new ArrayList(dao.getAll());
+        data = new ArrayList(dao.getAllOrd());
+        id = new ArrayList<>();
+        updateId();
         this.fireTableDataChanged();
     }
     
@@ -77,4 +79,9 @@ public abstract class ATableModel extends AbstractTableModel {
     @Override
     public abstract Object getValueAt(int rowIndex, int columnIndex);
 
+    /**
+     *  Llenamos el array de IDs (no se los muestra en la tabla pero
+     *  se los almacena).
+     */
+    protected abstract void updateId();
 }

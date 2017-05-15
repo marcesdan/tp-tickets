@@ -3,7 +3,7 @@
  */
 package presentacion.controlador;
 
-import static presentacion.vista.InfoFuncion.crearInfoFuncion;
+import static presentacion.vista.info.InfoFuncion.crearInfoFuncion;
 import dao.FuncionDao;
 import dao.DaoFactory;
 import entidades.Funcion;

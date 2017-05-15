@@ -9,27 +9,26 @@
 package presentacion.factory;
 
 import presentacion.controlador.Controlador;
-import presentacion.controlador.ControladorCliente;
-import presentacion.controlador.ControladorClienteNuevo;
 import presentacion.controlador.ControladorHijo;
 import presentacion.controlador.ControladorTicket;
 import presentacion.controlador.ControladorTicketNuevo;
-import presentacion.vista.PanelCliente;
-import presentacion.vista.PanelClienteNuevo;
-import presentacion.vista.PanelTicket;
-import presentacion.vista.PanelTicketNuevo;
+import presentacion.vista.panel.PanelTicket;
+import presentacion.vista.panel.PanelTicketNuevo;
 import presentacion.vista.VistaHija;
 import presentacion.vista.VistaPadre;
+import presentacion.vista.panel.PanelFactory;
 
 /**
  *
  * @author marces
  */
 public class TicketsFactory implements AbstractFactoryCompleta{
-
-     @Override
+    
+    PanelFactory factory = new PanelFactory();
+    
+    @Override
     public VistaPadre crearVista() {
-        return new PanelTicket();
+        return factory.crearPanelTicket();
     }
 
     @Override
@@ -39,7 +38,7 @@ public class TicketsFactory implements AbstractFactoryCompleta{
 
     @Override
     public VistaHija crearVistaHija() {
-        return new PanelTicketNuevo();
+        return factory.crearPanelTicketNuevo();
     }
 
     @Override

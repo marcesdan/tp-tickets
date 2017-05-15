@@ -5,7 +5,6 @@ package dao;
 
 import entidades.Cliente;
 import java.util.List;
-import javax.persistence.Query;
 
 /**
  *
@@ -19,17 +18,12 @@ public class ClienteJpa extends JpaDao<Long, Cliente>
     }
 
     @Override
-    public List<Cliente> buscarTodos() {
-        
-        Query consulta = getEm().createQuery("select s from "
-                + entityClass.getName() + "s");
-        
-        return (List<Cliente>) consulta.getResultList();
-    }
-
-    @Override
     public List<Cliente> getAllOrd() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        return (List<Cliente>) getEm()
+                .createQuery("select s from "+ entityClass.getName() + ""
+                        + " s order by s.apellido asc, s.nombre asc")
+                .getResultList(); 
     }
 
     @Override

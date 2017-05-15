@@ -19,16 +19,12 @@ public class ClienteTableModel extends ATableModel{
         super(new DaoFactory().crearClienteDao(),
                 
                 new String[]{
-                    "apellido","nombre","documento","telefono",
-                    "calle","numero","barrio","codigo"},
+                    "Apellido","Nombre","Documento","Teléfono",
+                    "Calle","Número","Barrio","Código"},
                 
                 new Class[]{
                     String.class, String.class, Long.class, String.class,
                     String.class, String.class, String.class, Integer.class});
-        
-        // llenamos un array de IDs. No los queremos mostrar en la tabla.
-        for (int i = 0; i < data.size(); i++) 
-           id.add( ((Cliente) data.get(i)).getId() );
     }
 
     @Override
@@ -46,6 +42,12 @@ public class ClienteTableModel extends ATableModel{
                 }
         
         return null;
+    }
+
+    @Override
+    protected void updateId() {
+        for (int i = 0; i < data.size(); i++) 
+           id.add( ((Cliente) data.get(i)).getId() );
     }
  
 }

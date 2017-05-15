@@ -17,16 +17,13 @@ public class TeatroJpa extends JpaDao<Long, Teatro>
     public TeatroJpa() {
         super();
     }
-    
-    @Override
-    public List<Teatro> buscarTodos() {
-        Query consulta = getEm().createQuery("select s from " 
-                + entityClass.getName() + "s");
-        return (List<Teatro>) consulta.getResultList();
-    }
 
     @Override
     public List<Teatro> getAllOrd() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        return (List<Teatro>) 
+                getEm().createQuery("select s from "+entityClass.getName()+ ""
+                        + " s order by s.nombre")
+                       .getResultList(); 
     }
 }

@@ -34,14 +34,8 @@ public class ControladorPrincipal implements Controlador {
      * Se muestra la vista de los clientes y se le asigna su controlador
      */
     public void mostrarClientes() {
-
         factory = new ClientesFactory();
-        controlador = factory.crearControlador();
-        vistaPadre = factory.crearVista();
-
-        controlador.setVista(vistaPadre);
-        vistaPadre.setControlador(controlador);
-        Main.getInstance().mostrarPanelEnFrame(vistaPadre);
+        cargar(factory);
     }
 
     /**
@@ -50,27 +44,26 @@ public class ControladorPrincipal implements Controlador {
     public void mostrarTeatros() {
 
         factory = new TeatrosFactory();
-        controlador = factory.crearControlador();
-        vistaPadre = factory.crearVista();
-
-        controlador.setVista(vistaPadre);
-        vistaPadre.setControlador(controlador);
-        Main.getInstance().mostrarPanelEnFrame(vistaPadre);
+        cargar(factory);
     }
 
+    /**
+     * Se muestra la vista de las funciones y se le asigna su controlador
+     */
     public void mostrarFunciones() {
         factory = new FuncionesFactory();
-        controlador = factory.crearControlador();
-        vistaPadre = factory.crearVista();
-
-        controlador.setVista(vistaPadre);
-        vistaPadre.setControlador(controlador);
-        Main.getInstance().mostrarPanelEnFrame(vistaPadre);
+        cargar(factory);
     }
 
-    public void mostrarTickets() {
-        
+    /**
+     * Se muestra la vista de los tickets y se le asigna su controlador
+     */
+    public void mostrarTickets() {  
         factory = new TicketsFactory();
+        cargar(factory);
+    }
+
+    private void cargar(AbstractFactoryCompleta factory) {
         controlador = factory.crearControlador();
         vistaPadre = factory.crearVista();
         controlador.setVista(vistaPadre);

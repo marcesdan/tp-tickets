@@ -11,7 +11,7 @@ import entidades.Direccion;
 import entidades.EntityFactory;
 import dao.ClienteDao;
 import dao.DaoFactory;
-import presentacion.vista.InfoCliente;
+import presentacion.vista.info.InfoCliente;
 import presentacion.vista.Main;
 import presentacion.vista.Vista;
 import presentacion.vista.VistaHija;

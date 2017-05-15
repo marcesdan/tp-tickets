@@ -3,7 +3,7 @@
  */
 package presentacion.controlador;
 
-import static presentacion.vista.InfoTeatro.crearInfoTeatro;
+import static presentacion.vista.info.InfoTeatro.crearInfoTeatro;
 import dao.TeatroDao;
 import dao.DaoFactory;
 import entidades.Teatro;

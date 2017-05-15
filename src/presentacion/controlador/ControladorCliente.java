@@ -3,7 +3,7 @@
  */
 package presentacion.controlador;
 
-import static presentacion.vista.InfoCliente.crearInfoCliente;
+import static presentacion.vista.info.InfoCliente.crearInfoCliente;
 import dao.ClienteDao;
 import dao.DaoFactory;
 import entidades.Cliente;
@@ -30,7 +30,7 @@ public class ControladorCliente implements Controlador {
     public void setVista(Vista vista) {
         this.vistaPadre = (VistaPadre) vista;
     }
-    
+   
     public void nuevoCliente() {
         cargar();
         Main.getInstance().mostrarPanelEnDialog(vistaHija, ""
@@ -70,13 +70,13 @@ public class ControladorCliente implements Controlador {
                 + "Primero debe seleccionar una fila de la tabla");
     }   
     
-    public void eliminarCliente(AbstractTableModel model, int fila) {
+    public void eliminarCliente(ATableModel model, int fila) {
         
         if (fila != -1 ) {
             
             if (vistaPadre.confirmacionBorrado()) {
                 
-                Long id = (Long) model.getValueAt(fila, 0);
+                Long id = model.getId(fila);
                 String apellido = (String) model.getValueAt(fila, 1);
                
                 ClienteDao dao = new DaoFactory().crearClienteDao();

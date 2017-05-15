@@ -21,9 +21,18 @@ public interface GenericDao<K, E> {
 
     public void delete(E entity);
     
+    /** Nos devuelve la cantidad de filas de una tabla
+     * @return la cantidad de filas de una tabla (puede ser cero).
+     */
     public Long getCount();
     
+    /** Nos devuelve todas las filas
+     * @return una lista genérica para la entidad en cuestion.
+     */
     public List<E> getAll();
     
+    /** Nos devuelve todas las filas ordenadas según un criterio de la entidad.
+     * @return una lista ordenada genérica para la entidad en cuestion.
+     */
     public List<E> getAllOrd();
 }

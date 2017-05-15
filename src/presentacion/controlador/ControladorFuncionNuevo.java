@@ -9,7 +9,7 @@ import entidades.EntityFactory;
 import dao.FuncionDao;
 import dao.DaoFactory;
 import entidades.Teatro;
-import presentacion.vista.InfoFuncion;
+import presentacion.vista.info.InfoFuncion;
 import presentacion.vista.Main;
 import presentacion.vista.Vista;
 import presentacion.vista.VistaHija;

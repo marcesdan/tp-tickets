@@ -6,6 +6,7 @@ package entidades;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,9 +26,14 @@ public class Funcion implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)   
     private Long id;
     
+    @Column(nullable = false)
     private String nombre;
-    private LocalDateTime fechaHora;
+    
+    @Column(nullable = false)
     private Double precio;
+    
+    @Column(nullable = false)
+    private LocalDateTime fechaHora;
     
     @OneToMany
     private List<Ticket> tickets;

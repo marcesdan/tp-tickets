@@ -4,6 +4,7 @@
 package entidades;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,7 +22,10 @@ public class Direccion implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
-    private String calle, numero, barrio;
+    @Column(nullable = false)
+    private String calle, numero; 
+    
+    private String barrio;
     private Integer codigoPostal;
     
     //<editor-fold defaultstate="collapsed" desc="Getters and Seters">

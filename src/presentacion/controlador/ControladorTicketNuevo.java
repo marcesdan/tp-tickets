@@ -10,7 +10,7 @@ import dao.TicketDao;
 import dao.DaoFactory;
 import entidades.Funcion;
 import java.time.LocalDateTime;
-import presentacion.vista.InfoTicket;
+import presentacion.vista.info.InfoTicket;
 import presentacion.vista.Main;
 import presentacion.vista.Vista;
 import presentacion.vista.VistaHija;
@@ -46,11 +46,9 @@ public class ControladorTicketNuevo implements ControladorHijo {
 
         id = infoTicket.getId();
         if (isNull(id)) {
-
-            EntityFactory factory = new EntityFactory();
-            Ticket ticket = factory.crearTicket();
+            
+            Ticket ticket = new EntityFactory().crearTicket();
             setearDatos(infoTicket, ticket);
-
             ticketDao.create(ticket);
 
         } else {
@@ -69,24 +67,41 @@ public class ControladorTicketNuevo implements ControladorHijo {
 
     private void setearDatos(InfoTicket info, Ticket ticket)
             throws IllegalArgumentException {
-
-        ticket.withCliente(
-                new DaoFactory()
-                        .crearClienteDao()
-                        .buscarPorDni(Integer // Consulta que busca por DNI.
-                                .parseInt(info.getDocumento()))) // info aloja strings.
-
-                .withFechaVenta(LocalDateTime.now()) // En el momento que se vende
-                .withFuncion((Funcion) info.getFuncion()); // info aloja una ref. a funcion
+       
+        // Consulta que busca por DNI.
+        ticket.withCliente(new DaoFactory()
+                    .crearClienteDao()
+                    .buscarPorDni(Integer.parseInt(info.getDocumento()))) // info aloja strings.
+              .withFuncion((Funcion) info.getFuncion()); // info aloja una ref. a funcion
     }
 
-    public void cambiaFuncion(InfoTicket info, Object obj) {
-
+    /** La vista indica al controlador que cambió FuncionComboBoxModel y requiere 
+     * los respectivos datos actualizados; tambien verifica la disponibilidad.
+     * @param info objeto con la información del ticket que manejan las vistas.
+     * @param obj la funcion elegida en el ComboBox
+     * @return true si la funcion elegida tiene disponibilidad, false de lo contrario.
+     */
+    public boolean cambiaFuncion(InfoTicket info, Object obj) {
+        boolean aux;
         Funcion funcion = (Funcion) obj;
+        
+        // Nos quedamos con la cantidad de tickets vendidos de esa funcion.
+        Integer cantidadTickets = ticketDao.buscarTicketsFuncion(funcion.getId());
+        Integer capacidad = funcion.getTeatro().getCapacidad();
+        if (capacidad <= cantidadTickets) { // Si no quedan asientos disponibles.
+
+            vistaNuevoTicket.mostrarMensaje("La funcion " + funcion.getNombre()
+                + " no tiene asientos disponibles!!!");
+            
+            aux = false;
+        }  
+        
+        else aux = true;
+        
         info.withFuncion(funcion)
                 .withPrecio(funcion.getPrecio().toString())
                 .withTeatro(funcion.getTeatro().toString());
         
-        
+        return aux;
     }
 }

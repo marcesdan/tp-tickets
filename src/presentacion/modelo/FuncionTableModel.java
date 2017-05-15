@@ -6,6 +6,7 @@
 package presentacion.modelo;
 
 import dao.DaoFactory;
+import entidades.Cliente;
 import entidades.Funcion;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -21,15 +22,10 @@ public class FuncionTableModel extends ATableModel{
         super(new DaoFactory().crearFuncionDao(),
                 
                 new String[]{
-                    "nombre","precio","fechaHora",
-                    "teatro"},
+                    "Nombre","Precio","Fecha y hora","Teatro"},
                 
                 new Class[]{
                     String.class, Double.class, String.class, Funcion.class});
-        
-        // llenamos un array de IDs. No los queremos mostrar en la tabla.
-        for (int i = 0; i < data.size(); i++) 
-           id.add( ((Funcion) data.get(i)).getId() );
     }
 
     @Override
@@ -50,6 +46,12 @@ public class FuncionTableModel extends ATableModel{
                 }
         
         return null;
+    }
+    
+    @Override
+    protected void updateId() {
+        for (int i = 0; i < data.size(); i++) 
+           id.add( ((Funcion) data.get(i)).getId() );
     }
  
 }
